@@ -58,3 +58,5 @@ template/
 self_compile_asm/*.s
 ir/_*.txt
 .vscode
+10cc
+9cc
