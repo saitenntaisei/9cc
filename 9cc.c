@@ -14,27 +14,25 @@ int main(int argc, char **argv)
         return 1;
     }
     preDecl();
-    printf("mov rax, ");
-    while (*argv[1] != '\0')
+    char *p = argv[1];
+    printf("mov rax, %ld\n", strtol(p, &p, 10));
+    while (*p != '\0')
     {
-        if (*argv[1] == '+')
+        if (*p == '+')
         {
-            argv[1]++;
-            printf("\n");
-            printf("    add rax, ");
+            p++;
+            printf("    add rax, %ld\n", strtol(p, &p, 10));
             continue;
         }
-        if (*argv[1] == '-')
+        if (*p == '-')
         {
-            argv[1]++;
-            printf("\n");
-            printf("    sub rax, ");
+            p++;
+            printf("    sub rax, %ld\n", strtol(p, &p, 10));
             continue;
         }
-        printf("%c", *argv[1]);
-        argv[1]++;
+        fprintf(stderr, "unepected input!");
+        exit(1);
     }
-    printf("\n");
     printf("    ret\n");
     return 0;
 }
