@@ -16,8 +16,8 @@ assert() {
     exit 1
   fi
 }
-cc -o 9cc 9cc.c
+
 assert 0 0
 assert 42 42
-
+assert 21 "5+20-4"
 echo OK
