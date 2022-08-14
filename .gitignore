@@ -61,3 +61,5 @@ ir/_*.txt
 10cc
 9cc
 temp
+tmp
+tmp.*

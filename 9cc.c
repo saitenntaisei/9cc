@@ -31,11 +31,18 @@ void preDecl()
 Token *newReserve(Token *pre, TokenKind kind, char c)
 {
     Token *next = calloc(1, sizeof(Token));
+    if (next == NULL)
+    {
+        fprintf(stderr, __func__);
+        exit(1);
+    }
     pre->next = next;
     next->kind = kind;
     next->c = c;
+
     return next;
 }
+
 Token *categorize(char *c)
 {
     Token head;
@@ -60,11 +67,17 @@ Token *categorize(char *c)
             cur->val = strtol(c, &c, 10);
             continue;
         }
-        fprintf(stderr, "unexpected input!");
+        fprintf(stderr, __func__);
         exit(1);
     }
     cur = newReserve(cur, TK_EOF, '\0');
+    fprintf(stderr, __func__);
     return head.next;
+}
+void workingProgress()
+{
+    fprintf(stderr, "come soon\n");
+    exit(1);
 }
 int main(int argc, char **argv)
 {
