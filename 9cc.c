@@ -31,11 +31,6 @@ void preDecl()
 Token *newReserve(Token *pre, TokenKind kind, char c)
 {
     Token *next = calloc(1, sizeof(Token));
-    if (next == NULL)
-    {
-        fprintf(stderr, __func__);
-        exit(1);
-    }
     pre->next = next;
     next->kind = kind;
     next->c = c;
